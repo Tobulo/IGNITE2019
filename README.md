@@ -20,6 +20,11 @@ Download the sequence of E. coli strain Sakai: `wget http://seqphase.mpg.de/Saka
 To simulate 50X coverage reads using sim_reads: `sim_reads --paired --depth 50 toy.fasta  toyD50.fasta`.
 To assemble the reads using a single k value of 50: `idba_ud -r toyD50.fasta -o outputD50k50 --mink 50 --maxk 50`.
 To make a kat PDF plot comparing the kmers in the reads and in the assembly you obtained (see https://kat.readthedocs.io/en/latest/walkthrough.html#genome-assembly-analysis-using-k-mer-spectra), first do `cd outputD50k50` then `kat comp -t 1 -p pdf ../toyD50.fasta contig.fa`.
+You may want to replot the graph using a diffent maximal k value of e.g. 80 using `kat plot spectra-cn -x 80 -p pdf kat-comp-main.mx`.
+
+## Now it is your turn to play!
+Pick up a biological or bioinformatic question you are interested in and try to solve it using simulation.
+If you want to try and simulate a random DNA sequence (to see how well reads generated from a random sequence assemble compared with reads generated from a real sequence), see http://www.navinlab.com/bioperl2/bioperl2/random_DNA.html.
 
 
 
