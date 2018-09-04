@@ -18,6 +18,8 @@ There are many other assemblers available in Bioconda. For instance you may want
 Go to $CINECA_SCRATCH and create a folder called "AssemblyPractical", then enter it.
 Download the sequence of E. coli strain Sakai: `wget http://seqphase.mpg.de/Sakai.fasta`. It is now in your folder, and you can look at the first 10 lines of it using `head Sakai.fasta` (to look at the first 100 lines, try `head -100 Sakai.fasta`). To find out the number of lines of Sakai.fasta, try `wc -l Sakai.fasta` (`wc` means "word count", and with -l it actually counts lines rather than words). For our practical to proceed faster, we will only use the first 10% of the genome: `head -7886 Sakai.fasta > toy.fasta`.
 To simulate 50X coverage reads using sim_reads: `sim_reads --paired --depth 50 toy.fasta  toyD50.fasta`.
+To assemble the reads using a single k value of 50: `idba_ud -r toyD50.fasta -o outputD50k50 --mink 50 --maxk 50`.
+To make a kat PDF plot comparing the kmers in the reads and in the assembly you obtained (see https://kat.readthedocs.io/en/latest/walkthrough.html#genome-assembly-analysis-using-k-mer-spectra), first do `cd outputD50k50` then `kat comp -t 1 -p pdf ../toyD50.fasta contig.fa`.
 
 
 
